@@ -5,6 +5,12 @@ const app = express()
 
 // First Route
 app.get('/', (req, res) => {
+  /** ---  Setting Logger Functionality on the Server --- */
+  const method = req.method
+  const url = req.url
+  const year = new Date().getFullYear()
+
+  console.log(method, url, year)
   res.status(200).send('<h1>Hello World!</h1>')
 })
 
