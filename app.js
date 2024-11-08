@@ -8,6 +8,11 @@ app.get('/', (req, res) => {
   res.status(200).send('<h1>Hello World!</h1>')
 })
 
+// Second Route
+app.get('/about', (req, res) => {
+  res.status(200).send('<h1>Hello World!</h1>')
+})
+
 app.listen(3300, () => {
   console.log('The app is listening on port 3300')
 })
