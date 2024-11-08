@@ -1,4 +1,4 @@
-# First Chapter
+# Chapter 1
 
 ## REST Architectural Style
 
