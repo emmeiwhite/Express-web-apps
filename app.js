@@ -11,7 +11,13 @@ const logger = require('./logger')
 const authorize = require('./authorize')
 
 // Middleware- logger to be used with app.use()
-app.use([logger, authorize])
+app.use([logger, authorize]) // BUG Fix AlhamdulilLah
+
+/** Middleware 3 types:
+ * 1) Own one's written by the developer
+ * 2) Those provided by the express library like express.static('./public')
+ * 3) Third-Party Middlewares
+ *  */
 
 // First Route
 app.get('/', (req, res) => {
