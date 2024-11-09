@@ -3,23 +3,14 @@
 const express = require('express')
 const app = express()
 
-const logger = (req, res, next) => {
-  const method = req.method
-  const url = req.url
-  const year = new Date().getFullYear()
-  console.log(method, url, year, 'we are logging from the middleware')
-
-  //   res.send('<h2>TESTING MIDDLEWARE !!!</h2>')
-  next()
-}
-
+const logger = require('./logger')
 // First Route
 app.get('/', logger, (req, res) => {
   res.status(200).send('<h1>Hello World!</h1>')
 })
 
 // Second Route
-app.get('/about', (req, res) => {
+app.get('/about', logger, (req, res) => {
   res.status(200).send('<h1>About Page!</h1>')
 })
 
