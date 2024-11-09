@@ -11,10 +11,11 @@ const logger = require('./logger')
 const authorize = require('./authorize')
 
 // Middleware- logger to be used with app.use()
-app.use('/api', [logger, authorize])
+app.use([logger, authorize])
 
 // First Route
 app.get('/', (req, res) => {
+  console.log(req.user)
   res.status(200).send('<h1>Hello World!</h1>')
 })
 
