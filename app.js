@@ -9,15 +9,18 @@ const todos = require('./data/todos')
 
 const logger = require('./logger')
 const authorize = require('./authorize')
+const morgan = require('morgan')
 
 // Middleware- logger to be used with app.use()
-app.use([logger, authorize]) // BUG Fix AlhamdulilLah
+// app.use([logger, authorize])
 
 /** Middleware 3 types:
  * 1) Own one's written by the developer
  * 2) Those provided by the express library like express.static('./public')
  * 3) Third-Party Middlewares
  *  */
+
+app.use(morgan('pity'))
 
 // First Route
 app.get('/', (req, res) => {
