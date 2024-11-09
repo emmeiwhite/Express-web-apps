@@ -8,9 +8,10 @@ const products = require('./data/products')
 const todos = require('./data/todos')
 
 const logger = require('./logger')
+const authorize = require('./authorize')
 
 // Middleware- logger to be used with app.use()
-app.use('/api', logger)
+app.use('/api', [logger, authorize])
 
 // First Route
 app.get('/', (req, res) => {
@@ -29,6 +30,9 @@ app.get('/api/products', (req, res) => {
     status: 'success',
     data: products
   })
+
+  // We have added the user to the request object
+  console.log(req.user)
 })
 
 app.get('/api/todos', (req, res) => {
