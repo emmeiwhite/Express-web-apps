@@ -10,7 +10,7 @@ const todos = require('./data/todos')
 const logger = require('./logger')
 
 // Middleware- logger to be used with app.use()
-app.use(logger)
+app.use('/api', logger)
 
 // First Route
 app.get('/', (req, res) => {
