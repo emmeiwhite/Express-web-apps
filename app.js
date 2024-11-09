@@ -3,20 +3,22 @@
 const express = require('express')
 const app = express()
 
-// First Route
-app.get('/', (req, res) => {
-  /** ---  Setting Logger Functionality on the Server --- */
+const logger = (req, res, next) => {
   const method = req.method
   const url = req.url
   const year = new Date().getFullYear()
 
   console.log(method, url, year)
+}
+
+// First Route
+app.get('/', logger, (req, res) => {
   res.status(200).send('<h1>Hello World!</h1>')
 })
 
 // Second Route
 app.get('/about', (req, res) => {
-  res.status(200).send('<h1>Hello World!</h1>')
+  res.status(200).send('<h1>About Page!</h1>')
 })
 
 app.listen(3300, () => {
